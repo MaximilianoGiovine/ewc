@@ -1,0 +1,173 @@
+/* ===== Variables y base ===== */
+:root {
+  --about-bg: var(--box-bg, #eaf1ff);
+  --about-card-bg: var(--text-container-bg, #fff);
+  --about-accent: var(--accent, #646cff);
+  --about-accent2: var(--accent2, #61dafb);
+  --about-radius: 1.5rem;
+  --about-shadow: 0 4px 24px rgba(100,108,255,0.10);
+  --about-title: 2.2rem;
+  --about-subtitle: 1.3rem;
+  --about-text: 1.08rem;
+  --about-text-dark: #222;
+  --about-text-light: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --about-bg: var(--box-bg, #232b45);
+    --about-card-bg: var(--text-container-bg, #232b45);
+    --about-accent: var(--accent, #61dafb);
+    --about-accent2: var(--accent2, #646cff);
+    --about-text-dark: #e0e0e0;
+    --about-text-light: #fff;
+  }
+}
+
+body, .about-intro, .about-vision, .about-methodology, .about-else, .about-contact {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+/* ===== Tarjetas principales ===== */
+.about-intro, .about-vision, .about-methodology, .about-else, .about-contact {
+  background: var(--about-card-bg);
+  border-radius: var(--about-radius);
+  box-shadow: var(--about-shadow);
+  margin: 2.5rem auto;
+  padding: 2.5rem 2rem;
+  max-width: 800px;
+  width: 95%;
+  transition: box-shadow 0.3s, background 0.3s;
+  animation: fadeInUp 1s cubic-bezier(.4,1.4,.6,1) both;
+  color: var(--about-text-dark);
+}
+
+/* ===== Secciones con fondo destacado ===== */
+.about-intro,
+.about-contact {
+  background: linear-gradient(90deg, var(--about-accent2) 0%, var(--about-accent) 100%);
+  color: var(--about-text-light);
+  text-shadow: 0 2px 12px rgba(100,108,255,0.13);
+}
+
+/* ===== Títulos ===== */
+.about-intro h1,
+.about-vision h1,
+.about-methodology h1,
+.about-else h1,
+.about-contact h1 {
+  font-size: var(--about-title);
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: inherit;
+}
+
+/* ===== Párrafos ===== */
+.about-intro p,
+.about-vision p,
+.about-methodology p,
+.about-else p,
+.about-contact p {
+  font-size: var(--about-text);
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+  color: inherit;
+}
+
+/* ===== Tarjetas con borde de acento ===== */
+.about-vision {
+  background: var(--about-card-bg);
+  border-left: 8px solid var(--about-accent2);
+  color: var(--about-text-dark);
+}
+.about-methodology {
+  background: var(--about-card-bg);
+  border-left: 8px solid var(--about-accent);
+  color: var(--about-text-dark);
+}
+.about-else {
+  background: var(--about-card-bg);
+  border-left: 8px solid var(--about-accent2);
+  color: var(--about-text-dark);
+}
+
+/* ===== Listas ===== */
+.about-methodology ul,
+.about-else ul {
+  margin: 1.2rem 0 1.2rem 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+.about-methodology li,
+.about-else li {
+  font-weight: 700;
+  color: var(--about-accent);
+  margin: 1.2rem 0 0.3rem 0;
+  font-size: var(--about-subtitle);
+  position: relative;
+}
+.about-methodology li::before,
+.about-else li::before {
+  content: "•";
+  color: var(--about-accent2);
+  font-size: 1.3em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+.about-methodology p,
+.about-else p {
+  margin: 0 0 1.1rem 0.5rem;
+  color: var(--about-text-dark);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-methodology p,
+  .about-else p {
+    color: var(--about-text-light);
+  }
+}
+
+/* ===== Subtítulos ===== */
+.about-methodology h2 {
+  font-size: 1.4rem;
+  color: var(--about-accent2);
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ===== Contacto ===== */
+.about-contact a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.about-contact a:hover {
+  color: var(--about-accent2);
+}
+
+/* ===== Animación fadeInUp reutilizable ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: none;}
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+  .about-intro, .about-vision, .about-methodology, .about-else, .about-contact {
+    padding: 1.2rem 0.7rem;
+    font-size: 1rem;
+  }
+  .about-intro h1,
+  .about-vision h1,
+  .about-methodology h1,
+  .about-else h1,
+  .about-contact h1 {
+    font-size: 1.3rem;
+  }
+  .about-methodology h2 { font-size: 1.1rem; }
+}
