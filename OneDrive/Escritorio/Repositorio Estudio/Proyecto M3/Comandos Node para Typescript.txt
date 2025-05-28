@@ -1,0 +1,15 @@
+npm init -y
+
+npm install --save-dev typescript @types/express @types/node nodemon ts-node express
+npm install -D Morgan
+npm install dotenv
+
+tsc --init
+
+crear nodemon.json
+configurar nodemon
+
+"start : "nodemon"
+"build" : "tsc"
+
+configurar tsconfig.json (rootdir, outdir)

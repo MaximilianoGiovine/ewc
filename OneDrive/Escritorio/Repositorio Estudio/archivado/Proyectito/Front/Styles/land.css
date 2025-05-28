@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar Styles */
+nav {
+    background-color: #333;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background-color: #555;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+}
+
+nav a:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav div {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav a {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #333;
+    margin-top: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #555;
+    margin-top: 15px;
+    font-weight: normal;
+}
+
+p {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: justify;
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+    font-size: 14px;
+}

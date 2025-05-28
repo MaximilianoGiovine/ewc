@@ -1,0 +1,14 @@
+{
+  "name": "practica-jest",
+  "version": "1.0.0",
+  "description": "una practica de jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "author": "maxi",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

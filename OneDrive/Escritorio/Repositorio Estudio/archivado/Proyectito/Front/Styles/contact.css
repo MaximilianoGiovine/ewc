@@ -1,0 +1,73 @@
+/* Contact Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background matching the palette */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    color: #333; /* Neutral dark color for headings */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 14px;
+    color: #555; /* Medium gray for labels */
+    margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #333; /* Neutral text color */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #0078d4; /* Accent color for focus */
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 120, 212, 0.3); /* Subtle focus shadow */
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form button {
+    display: inline-block;
+    background-color: #0078d4; /* Primary button color */
+    color: #fff; /* White text */
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    text-align: center;
+}
+
+.contact-form button:hover {
+    background-color: #005a9e; /* Darker shade for hover */
+}
+
+.contact-form .error-message {
+    color: #d9534f; /* Red for error messages */
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: left; /* Align error messages to the left */
+}

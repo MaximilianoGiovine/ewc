@@ -1,0 +1,68 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Navigation Bar Styles */
+nav {
+  background-color: #333;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Title */
+nav h1 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Navigation Links */
+nav a {
+  text-decoration: none;
+  color: white;
+  background-color: #555;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+}
+
+/* Hover Effect for Links */
+nav a:hover {
+  background-color: #444;
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Navigation Links Container */
+nav div {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  nav div {
+      flex-direction: column;
+      width: 100%;
+  }
+
+  nav a {
+      margin: 5px 0;
+      width: 100%;
+      text-align: center;
+  }
+}
