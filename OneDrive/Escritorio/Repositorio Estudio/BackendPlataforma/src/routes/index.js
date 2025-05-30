@@ -1,14 +1,15 @@
 const express = require('express');
+const { register, login } = require('../controllers');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    console.log('hola, funciono');
-    res.send('GET recibido');
-});
+router.post('/register', register);
 
-router.post('/', (req, res) => {
-    console.log('hola, funciono con post');
-    res.send('POST recibido');
+router.post('/auth/login', login);
+
+
+router.get('/', (req, res) => {
+console.log('hola, funciono');
+res.send('GET recibido');
 });
 
 router.put('/', (req, res) => {
