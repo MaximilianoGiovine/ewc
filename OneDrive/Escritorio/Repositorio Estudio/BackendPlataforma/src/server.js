@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-
+const router = require('./routes/index');
 /*
 server se encarga de conectar con la librería de express y configurar las demas librerías que utiliza el proyecto con el backend
 el propósito es modularizar el código de arranque de la aplicación
@@ -11,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(router)
 // Connect to MongoDB
 
 module.exports = app;
