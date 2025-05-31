@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 /*
     este es el modelo de usuario que se utiliza para almacenar los registros de usuario en la base de datos.
-    contiene los campos username y password, donde el username es único y requerido, y la contraseña se encripta antes de guardarla.
+    contiene los campos username y password, donde el username es único y requerido, además la contraseña es encriptada antes de guardarla.s
     El modelo utiliza mongoose para interactuar con MongoDB y bcryptjs para encriptar las contraseñas.
     El modelo se exporta para ser utilizado en otras partes de la aplicación.
 */

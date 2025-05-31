@@ -14,11 +14,8 @@ const registerUser = async (username, password) => {
   const existingUser = await User.findOne({ username });
   if (existingUser) throw new Error("El usuario ya está registrado");
 
-  // Encriptar la contraseña
-  const hashedPassword = await bcrypt.hash(password, 10);
-
   // Crear nuevo usuario en la BD
-  const user = new User({ username, password: hashedPassword });
+  const user = new User({ username, password});
   await user.save();
 
   return { id: user._id, username: user.username };
