@@ -1,0 +1,210 @@
+/* projects.css */
+
+/* Variables de color y fuentes para mantener la estética */
+:root {
+    --primary: #1e293b;
+    --secondary: #fbbf24;
+    --accent: #38bdf8;
+    --bg: #f1f5f9;
+    --card-bg: #fff;
+    --shadow: 0 4px 24px rgba(30,41,59,0.08);
+    --radius: 1.5rem;
+    --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+    --text: #222;
+    --desc: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #f1f5f9;
+        --secondary: #fbbf24;
+        --accent: #38bdf8;
+        --bg: #181f2a;
+        --card-bg: #232b39;
+        --shadow: 0 4px 24px rgba(30,41,59,0.18);
+        --text: #f5f5f5;
+        --desc: #b6c2d1;
+    }
+}
+
+.projects-section {
+    background: linear-gradient(135deg, var(--bg) 60%, var(--accent) 100%);
+    padding: 4rem 1rem 6rem 1rem;
+    min-height: 100vh;
+    font-family: var(--font-main);
+}
+
+.projects-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.projects-title::after {
+    content: '';
+    display: block;
+    margin: 0.5rem auto 0 auto;
+    width: 4rem;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- NUEVO: Estilos para acordeón de proyectos --- */
+.project-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+    position: relative;
+    cursor: pointer;
+    animation: fadeInUp 0.7s cubic-bezier(.4,2,.6,1) both;
+    margin-bottom: 1.5rem;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.03) rotate(-1deg);
+    box-shadow: 0 8px 32px rgba(56,189,248,0.13);
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: var(--bg);
+    transition: filter 0.2s;
+}
+
+.project-card:hover .project-image {
+    filter: brightness(0.92) saturate(1.2);
+}
+
+.project-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: background 0.2s, color 0.2s;
+    border-bottom: 1px solid rgba(100,116,139,0.08);
+}
+
+.project-title:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.project-content {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    flex: 1;
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    gap: 1rem;
+    animation: fadeInUp 0.5s;
+}
+
+.project-card.active .project-content {
+    display: flex; /* Se muestra solo si está activo */
+}
+
+/* Opcional: animación suave al desplegar */
+.project-content {
+    transition: max-height 0.3s cubic-bezier(.4,2,.6,1), opacity 0.3s;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+.project-card.active .project-content {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.project-description {
+    color: var(--desc);
+    font-size: 1rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.project-tag {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+}
+
+.project-card:hover .project-tag {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-link {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.project-link:hover {
+    color: var(--secondary);
+}
+
+/* Animación de entrada dinámica */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .projects-title {
+        font-size: 2rem;
+    }
+    .project-content {
+        padding: 1.2rem 1rem 1rem 1rem;
+    }
+}

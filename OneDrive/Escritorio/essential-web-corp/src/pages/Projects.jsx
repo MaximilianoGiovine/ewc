@@ -1,4 +1,31 @@
+import React, { useState } from 'react';
+import '../styles/Projects.css';
+
+const projects = [
+  {
+    title: 'Proyecto Maria Paz',
+    description: `Este fue el primer proyecto que afrontamos. Para llevarlo a cabo nos centramos en el uso de tecnologías de TiendaNube para la confexión y diseños a medida
+    se implementaron pasarelas de pago y estrategias de marketing digital y SEO para mejorar la visibilidad y alcance del negocio. De ser una empresa local con
+    alcance limitadoa la ciudad donde se encuentra, hoy en día gracias a su página web y su presencia en redes, logro un aproach a nivel nacional y un crecimiento en
+    sus ventas.`
+  },
+  {
+    title: 'Proyecto 2',
+    description: 'Descripción breve del proyecto 2.'
+  },
+  {
+    title: 'Proyecto 3',
+    description: 'Descripción breve del proyecto 3.'
+  }
+];
+
 export default function Projects() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleToggle = idx => {
+    setActiveIndex(activeIndex === idx ? null : idx);
+  };
+
   return (
   <>
     <div className="projects-title">
@@ -10,22 +37,26 @@ export default function Projects() {
       <p>Además, te dejamos algunos de los testimonios de nuestros clientes satisfechos con nuestra labor</p>
     </div>
     <div className="projects-container">
-      <div className="project-card">
-        <h3>Proyecto Maria Paz</h3>
-        <p>Este fue el primer proyecto que afrontamos. Para llevarlo a cabo nos centramos en el uso de tecnologías de TiendaNube para la confexión y diseños a medida
-          se implementaron pasarelas de pago y estrategias de marketing digital y SEO para mejorar la visibilidad y alcance del negocio. De ser una empresa local con
-          alcance limitadoa la ciudad donde se encuentra, hoy en día gracias a su página web y su presencia en redes, logro un aproach a nivel nacional y un crecimiento en
-          sus ventas.
-        </p>
-      </div>
-      <div className="project-card">
-        <h3>Proyecto 2</h3>
-        <p>Descripción breve del proyecto 2.</p>
-      </div>
-      <div className="project-card">
-        <h3>Proyecto 3</h3>
-        <p>Descripción breve del proyecto 3.</p>
-      </div>
+      {projects.map((project, idx) => (
+        <div
+          className={`project-card${activeIndex === idx ? ' active' : ''}`}
+          key={idx}
+        >
+          <div
+            className="project-title"
+            onClick={() => handleToggle(idx)}
+            tabIndex={0}
+            role="button"
+            aria-expanded={activeIndex === idx}
+            style={{ outline: 'none' }}
+          >
+            {project.title}
+          </div>
+          <div className="project-content">
+            <p className="project-description">{project.description}</p>
+          </div>
+        </div>
+      ))}
     </div>
   </>
   )
