@@ -1,0 +1,205 @@
+:root {
+  --contact-bg: linear-gradient(135deg, #38bdf8 0%, #1e293b 100%);
+  --contact-card-bg: rgba(255,255,255,0.95);
+  --contact-card-bg-dark: rgba(30,41,59,0.95);
+  --contact-accent: #fbbf24;
+  --contact-shadow: 0 8px 40px rgba(30,41,59,0.18);
+  --contact-radius: 2rem;
+  --contact-font: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --contact-label: #64748b;
+  --contact-input: #f1f5f9;
+  --contact-input-dark: #232b39;
+  --contact-text: #1e293b;
+  --contact-text-dark: #f1f5f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --contact-card-bg: var(--contact-card-bg-dark);
+    --contact-input: var(--contact-input-dark);
+    --contact-text: var(--contact-text-dark);
+  }
+}
+
+.contact-section {
+  min-height: 100vh;
+  background: var(--contact-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  font-family: var(--contact-font);
+}
+
+.contact-card {
+  background: var(--contact-card-bg);
+  box-shadow: var(--contact-shadow);
+  border-radius: var(--contact-radius);
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popIn 1s cubic-bezier(.4,2,.6,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, var(--contact-accent) 0%, transparent 70%);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.contact-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  letter-spacing: -1px;
+  z-index: 1;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: var(--contact-label);
+  margin-bottom: 2rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  z-index: 1;
+}
+
+.contact-label {
+  font-size: 1rem;
+  color: var(--contact-label);
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  border: none;
+  border-radius: 1.2rem;
+  background: var(--contact-input);
+  color: var(--contact-text);
+  font-size: 1.08rem;
+  font-family: inherit;
+  box-shadow: 0 2px 12px rgba(56,189,248,0.07);
+  transition: box-shadow 0.2s, background 0.2s;
+  outline: none;
+  resize: none;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  box-shadow: 0 4px 24px rgba(56,189,248,0.18);
+  background: #fffbe8;
+}
+
+.contact-btn {
+  margin-top: 0.5rem;
+  padding: 1rem 0;
+  width: 100%;
+  border: none;
+  border-radius: 1.2rem;
+  background: linear-gradient(90deg, var(--contact-accent), #38bdf8 90%);
+  color: #1e293b;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(251,191,36,0.13);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(90deg, #38bdf8, var(--contact-accent) 90%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.contact-social {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  z-index: 1;
+}
+
+.contact-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #38bdf8;
+  font-size: 1.5rem;
+  transition: background 0.2s, color 0.2s, transform 0.18s;
+  box-shadow: 0 2px 8px rgba(56,189,248,0.09);
+}
+
+.contact-social a:hover {
+  background: var(--contact-accent);
+  color: #fff;
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.contact-success,
+.contact-error {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.08rem;
+  border-radius: 1rem;
+  padding: 0.8rem 1rem;
+  animation: fadeInUp 0.7s cubic-bezier(.4,2,.6,1) both;
+}
+
+.contact-success {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.contact-error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.85) translateY(40px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: none;}
+}
+
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 2rem 0.7rem 1.5rem 0.7rem;
+    max-width: 98vw;
+  }
+  .contact-title {
+    font-size: 1.4rem;
+  }
+}
